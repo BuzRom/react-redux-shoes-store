@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./Item.scss";
+import "../style/Components/CartItem.scss";
 
-export default function Item({ title, price, imageUrl, onRemove }) {
+export default function CartItem({ title, price, imageUrl, onRemove }) {
   return (
     <div className="cart__item">
       <img src={imageUrl} alt="shoes" />

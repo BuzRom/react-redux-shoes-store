@@ -3,18 +3,17 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ProductCard from "../Components/ProductCard";
-import Cart from "../Components/Cart/Cart";
+import Cart from "../Components/Cart";
 
 import "../style/index.scss";
 
 export default function Favourites() {
   const isActiveCart = useSelector(({ cart }) => cart.isActive);
-  const favouriteItems = useSelector(({ favourites }) => favourites.items);
+  const favourite = useSelector(({ favourites }) => favourites.items);
 
   return (
     <div>
       {isActiveCart && <Cart />}
-
       <div className="content__title">
         <Link to="/">
           <button>
@@ -24,9 +23,9 @@ export default function Favourites() {
         <h2>My favourites</h2>
       </div>
       <div className="content">
-        {favouriteItems.length !== 0
+        {favourite.length !== 0
           ?
-          (favouriteItems.map(item => <ProductCard key={item.title} {...item} />))
+          (favourite.map(item => <ProductCard key={item.title} {...item} />))
           :
           (<div className="empty-list">
             <img src="img/smile.png" alt="empty" />

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ProductCard from "../Components/ProductCard";
-import Cart from "../Components/Cart/Cart";
+import Cart from "../Components/Cart";
 
 import "../style/index.scss";
 
@@ -25,16 +25,12 @@ export default function Orders() {
         <h2>My orders</h2>
       </div>
       <div className="content">
-        {orderItems.length !== 0 ? (
-          orderItems.map(order =>
-            order.map(item => (
-              <div>
-                <ProductCard key={item.title} {...item} />
-              </div>
-            ))
-          )
-        ) : (
-          <div className="empty-list">
+        {orderItems.length > 0
+          ?
+          (orderItems.map(order =>
+            order.map(item => (<ProductCard key={item.title} {...item} />))))
+          :
+          (<div className="empty-list">
             <img src="img/smile.png" alt="empty" />
             <h3 className='empty__title'>There are no orders :(</h3>
             <p className='empty__text'>You have not made any order</p>
@@ -45,7 +41,7 @@ export default function Orders() {
               </svg>Return
             </Link>
           </div>
-        )}
+          )}
       </div>
     </div>
   );

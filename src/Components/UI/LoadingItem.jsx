@@ -5,12 +5,11 @@ export default function LoadingItem() {
   return (
     <ContentLoader
       speed={2}
-      width={250}
-      height={290}
+      width={220}
+      height={250}
       viewBox="-15 -3 220 290"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
-      style={{ marginTop: "30px" }}
     >
       <rect x="10" y="10" rx="8" ry="8" width="200" height="110" />
       <rect x="10" y="156" rx="0" ry="0" width="200" height="20" />

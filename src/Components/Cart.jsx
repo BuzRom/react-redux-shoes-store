@@ -5,11 +5,11 @@ import {
   toggleCart,
   removeItemFromCart,
   clearCart,
-} from "../../redux/actions/cart";
-import { createOrder } from "../../redux/actions/orders";
+} from "../redux/actions/cart";
+import { createOrder } from "../redux/actions/orders";
+import CartItem from "./CartItem";
 
-import "./Cart.scss";
-import Item from "./Item/Item";
+import "../style/Components/Cart.scss";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export default function Cart() {
         <div className="cart__list">
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
-              <Item key={item.title} onRemove={removeItem} {...item} />
+              <CartItem key={item.title} onRemove={removeItem} {...item} />
             ))
           ) : (
             <div className="empty-list cart__empty">

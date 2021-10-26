@@ -14,8 +14,10 @@ export default function Search() {
 
   return (
     <div className="search">
-      <h2>{searchValue ? `Search by "${searchValue}"` : "All shoes"}</h2>
-      <div>
+      <div className="content__title">
+        <h2>{searchValue ? `Search by "${searchValue}"` : "All shoes"}</h2>
+      </div>
+      <div className='input-block'>
         <svg
           width="16"
           height="16"

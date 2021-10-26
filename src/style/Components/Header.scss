@@ -11,7 +11,7 @@ header {
   &::before {
     content: "";
     background-color: #ffffff;
-    background-image: linear-gradient(190deg, #ffffff 0%, #8dc2ff 74%);
+    background-image: linear-gradient(190deg, #ffffff 0%, #a6cfff 74%);
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -23,8 +23,7 @@ header {
   }
 
   .header__container {
-    width: 94%;
-    max-width: 1370px;
+    width: 80%;
     height: 100%;
     margin: 0 auto;
     padding: 0 20px;
@@ -92,6 +91,22 @@ header {
 
         margin-left: 16px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    .header__container {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .logo {
+    &__title {
+      display: none;
+      visibility: hidden;
     }
   }
 }

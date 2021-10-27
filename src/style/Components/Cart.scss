@@ -4,13 +4,14 @@
   right: 0;
   z-index: 10;
   transform-style: preserve-3d;
-  transform: translate3d(0, 0, 60px);
+  transform: translate3d(0, 0, 500px);
   display: flex;
   flex-direction: column;
   width: 420px;
   height: 100vh;
   background: #ffffff;
-  padding: 30px;
+  padding: 30px 30px 50px;
+  overflow: auto;
 
   &__title {
     display: flex;
@@ -47,9 +48,8 @@
 
       li {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
-
         margin-top: 10px;
 
         p {
@@ -57,11 +57,13 @@
           font-weight: 400;
         }
 
-        span {
-          color: #dfdfdf;
+        div {
+          flex: 1;
+          border-bottom: 1px dashed #dfdfdf;
+          margin: 0 7px;
         }
 
-        b {
+        span {
           font-size: 18px;
           font-weight: 600;
         }
@@ -97,10 +99,13 @@
   height: 100vh;
   z-index: 9;
   background: rgba($color: #000000, $alpha: 0.5);
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 500px);
 }
 
 @media screen and (max-width: 580px) {
   .cart {
     width: 100%;
+    padding: 30px 30px 80px;
   }
 }

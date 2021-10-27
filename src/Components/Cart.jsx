@@ -87,11 +87,13 @@ export default function Cart() {
             <ul>
               <li>
                 <p>Total: </p>
-                <b>{getCartPrice()} $ </b>
+                <div></div>
+                <span>{getCartPrice()} $ </span>
               </li>
               <li>
                 <p>Tax 5%: </p>
-                <b>{Math.floor(getCartPrice() * 0.05)} $ </b>
+                <div></div>
+                <span>{Math.floor(getCartPrice() * 0.05)} $ </span>
               </li>
             </ul>
             <button onClick={createCartOrder} className='button order-btn'>To order

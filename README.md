@@ -6,14 +6,12 @@
 ### Desine: [Figma](https://www.figma.com/file/fw0toTyXMwM1y4WIe0YFrJ/React-Sneakers?node-id=0%3A1)
 
 **Stack:**
-<ul>
-   <li>axios</li>
-   <li>content-loader</li>
-   <li>redux</li>
-   <li>router-dom</li>
-   <li>tilt</li>
-   <li>sass</li>
-</ul>
+   - axios
+   - content-loader
+   - redux
+   - router-dom
+   - tilt
+   - sass
 
 ### Start project:
 <pre><code>npm install</code></pre>

@@ -2,7 +2,9 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 99999;
+  z-index: 10;
+  transform-style: preserve-3d;
+  transform: translate3d(51px);
   display: flex;
   flex-direction: column;
   width: 420px;
@@ -93,7 +95,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 99;
+  z-index: 9;
   background: rgba($color: #000000, $alpha: 0.5);
 }
 

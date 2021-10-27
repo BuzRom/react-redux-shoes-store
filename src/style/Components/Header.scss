@@ -6,8 +6,10 @@
 header {
   position: sticky;
   top: 0;
-  z-index: 99999;
+  z-index: 10;
   height: 90px;
+  transform-style: preserve-3d;
+  transform: translate3d(51px);
   &::before {
     content: "";
     background-color: #ffffff;
@@ -35,7 +37,6 @@ header {
   .logo {
     display: flex;
     align-items: center;
-
     cursor: pointer;
 
     img {
@@ -53,7 +54,6 @@ header {
       p {
         font-size: 14px;
         font-weight: 400;
-
         color: #9d9d9d;
       }
     }
@@ -64,16 +64,13 @@ header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       list-style: none;
 
       li {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         cursor: pointer;
-
         margin-right: 30px;
 
         &:last-child {
@@ -86,9 +83,7 @@ header {
       p {
         font-size: 14px;
         font-weight: 600;
-
         color: #5c5c5c;
-
         margin-left: 16px;
       }
     }

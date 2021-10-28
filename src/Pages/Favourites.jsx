@@ -28,7 +28,7 @@ export default function Favourites() {
           (favourite.map(item => <ProductCard key={item.title} {...item} />))
           :
           (<div className="empty-list">
-            <img src="img/smile.png" alt="empty" />
+            <span style={{fontSize: '70px'}}>&#129402;</span>
             <h3 className='empty__title'>There are no favourites :(</h3>
             <p className='empty__text'>You have not added anything to favourite</p>
             <Link to="/" className='button'>

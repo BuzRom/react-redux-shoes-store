@@ -31,7 +31,7 @@ export default function Orders() {
             order.map(item => (<ProductCard key={item.title} {...item} />))))
           :
           (<div className="empty-list">
-            <img src="img/smile.png" alt="empty" />
+          <span style={{fontSize: '70px'}}>&#129402;</span>
             <h3 className='empty__title'>There are no orders :(</h3>
             <p className='empty__text'>You have not made any order</p>
             <Link to="/" className='button'>

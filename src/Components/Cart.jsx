@@ -14,6 +14,7 @@ import "../style/Components/Cart.scss";
 export default function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector(({ cart }) => cart.items);
+  const [isOrderComplete, setIsOrderComplete] = React.useState(false);
 
   const getCartPrice = () => {
     return cartItems
@@ -33,6 +34,7 @@ export default function Cart() {
   const createCartOrder = () => {
     dispatch(createOrder(cartItems));
     dispatch(clearCart());
+    setIsOrderComplete(true);
   };
 
   return (
@@ -63,47 +65,50 @@ export default function Cart() {
             />
           </svg>
         </div>
-        <div className="cart__list">
-          {cartItems.length > 0 ? (
-            cartItems.map((item) => (
-              <CartItem key={item.title} onRemove={removeItem} {...item} />
-            ))
-          ) : (
-            <div className="empty-list cart__empty">
-              <img src="img/empty.png" alt="empty" />
-              <h3 className='empty__title'>Cart empty</h3>
-              <p className='empty__text'>Add at least one pair of shoes to place an order.</p>
-              <button onClick={closeCart} className='button'>
+        {cartItems.length > 0 ? (
+          <>
+            <div className="cart__list">
+              {cartItems.map((item) => (
+                <CartItem key={item.title} onRemove={removeItem} {...item} />
+              ))}
+            </div>
+            <div className="cart__additional">
+              <ul>
+                <li>
+                  <p>Total: </p>
+                  <div></div>
+                  <span>{getCartPrice()} $ </span>
+                </li>
+                <li>
+                  <p>Tax 5%: </p>
+                  <div></div>
+                  <span>{Math.floor(getCartPrice() * 0.05)} $ </span>
+                </li>
+              </ul>
+              <button onClick={createCartOrder} className='button order-btn'>To order
                 <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 7H14.7143" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M8.71436 1L14.7144 7L8.71436 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>Return
+                </svg>
               </button>
             </div>
-          )}
-        </div>
-        {cartItems.length > 0 ? (
-          <div className="cart__additional">
-            <ul>
-              <li>
-                <p>Total: </p>
-                <div></div>
-                <span>{getCartPrice()} $ </span>
-              </li>
-              <li>
-                <p>Tax 5%: </p>
-                <div></div>
-                <span>{Math.floor(getCartPrice() * 0.05)} $ </span>
-              </li>
-            </ul>
-            <button onClick={createCartOrder} className='button order-btn'>To order
+          </>
+        ) : (
+          <div className="empty-list cart__empty">
+            <img src={isOrderComplete ? 'img/complete-order.png' : "img/empty.png"} alt="empty" />
+            <h3 className='empty__title'>{isOrderComplete ? 'The order has been fulfilled!' : 'Cart empty'}</h3>
+            <p className='empty__text'>{
+              isOrderComplete
+                ? `Your order will soon be delivered by courier.`
+                : 'Add at least one pair of shoes to place an order.'}</p>
+            <button onClick={closeCart} className='button'>
               <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H14.7143" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M8.71436 1L14.7144 7L8.71436 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              </svg>Return
             </button>
           </div>
-        ) : (null)}
+        )}
       </div>
     </div>
   );
